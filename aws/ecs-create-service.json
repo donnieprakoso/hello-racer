@@ -1,0 +1,21 @@
+{
+    "cluster": "hello-racer",
+    "serviceName": "svc-hello-racer",
+    "taskDefinition": "hello-racer",   
+    "desiredCount": 1,
+    "launchType": "FARGATE",
+    "platformVersion": "LATEST",
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets":[
+                REPLACE_ME_WITH_HELLO_RACER_SUBNET_ID
+
+            ],
+            "securityGroups": [
+                REPLACE_ME_WITH_HELLO_RACER_SECURITY_GROUP_ID
+            ],
+            "assignPublicIp": "ENABLED"
+        }
+    },
+    "schedulingStrategy": "REPLICA"
+}

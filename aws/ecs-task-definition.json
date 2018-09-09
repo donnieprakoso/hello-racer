@@ -1,0 +1,32 @@
+{
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "containerDefinitions": [
+        {
+            "name": "container-hello-racer",
+            "image": "donnieprakoso/hello-racer",
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "protocol": "tcp"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/hello-racer",
+                    "awslogs-region": "ap-southeast-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "networkMode": "awsvpc",
+    "memory": "1024",
+    "cpu": "512",
+    "executionRoleArn": REPLACE_ME_WITH_HELLO_RACER_IAM_TASK_ROLE,
+    "family": "hello-racer",
+    "taskRoleArn": REPLACE_ME_WITH_HELLO_RACER_IAM_TASK_ROLE
+}
